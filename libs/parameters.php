@@ -15,7 +15,7 @@
 $server = "127.0.0.1";
 $user = "root";
 $pswd = "";
-$database = "videojuegos";
+$database = "vmart";
 $port = "3306";
 
 $emailHost = 'email-smtp.us-west-2.amazonaws.com';

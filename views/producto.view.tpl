@@ -13,7 +13,7 @@
       </div>
       <div class="row">
         <label class="col-5" for="prdcodbrr">Código de Barras</label>
-        <input type="text" id="prdcodbrr" name="prdcodbrr" value="{{prdcodbrr}}" 
+        <input type="text" id="prdcodbrr" name="prdcodbrr" value="{{prdcodbrr}}"
           placeholder="Código de Barras" maxlength="45"
           class="col-7" {{readonly}}/>
       </div>

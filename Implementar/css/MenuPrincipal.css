@@ -1,0 +1,162 @@
+body{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-size: 100%;
+  font-size: 1em;
+  line-height: 2;
+    width: 100%;
+}
+
+header{
+  box-sizing: border-box;
+  margin: 0px;
+  padding:0px;
+  border: 0px;
+  width: 100%;
+
+}
+
+ nav ul {
+  list-style: none;
+  text-align:center;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+
+.Principal{
+font-family: 'Luckiest Guy', sans-serif;
+font-size: 25px;
+background-color: #FF522D;
+}
+.Ultimo{
+font-family: 'Luckiest Guy', sans-serif;
+font-size: 18px;
+background-color: #FF522D;
+}
+.subir{
+
+  color: #000;
+}
+article p{
+  padding: 0px;
+  margin: 0px;
+    text-align:center;
+    border: groove 1em #E7773A;
+    border-radius: 2em;
+
+}
+article img{
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+}
+nav ul li{
+  display:inline;
+}
+
+nav ul li a{
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 1em 1.25em;
+  text-decoration: none;
+color: #000 ;
+}
+
+.Secundario{
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.Secundario li{
+  padding: 0px;
+}
+
+ nav ul li a:hover {
+  color: #FFDC00;
+  border-radius: 10px;
+  background-color: #66B95C;
+}
+
+
+footer{
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+input {
+  border: 1px solid #444;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  box-shadow: 1px 1px 3px #999;
+  border-radius: 5px;
+  outline: none;
+}
+h1{
+  font-weight: bold;
+  font: 50px;
+  text-align: center;
+  text-decoration: #C78518 wavy underline;
+  color: #000;
+}
+input:focus {
+  border: 1px solid #3f51b5;
+}
+fieldset {
+  border: none;
+}
+button {
+  border: 1px solid #444;
+  padding: 1em 1.5em;
+  font-size: 1em;
+  box-shadow: 3px 3px 5px #999;
+  background-color: #EEE;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+button.primary {
+  background-color: #F2F259;
+  color: #000;
+  border-color: #C78518;
+  font-family: 'Luckiest Guy', sans-serif;
+  font-size: 18px;
+}
+button.danger {
+  background-color: #FF5252;
+  color: #FFF;
+  border-color: #d32f2f;
+}
+input.material {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border: 2px solid #C78518;
+  border-radius: 5px;
+  box-shadow: none;
+}
+input.material:focus {
+  border: 2px solid #000;
+}
+label.material {
+  padding-top: 18px;
+  padding-bottom: 12px;
+}
+button:hover {
+
+ color: #000;
+ font-weight: bold;
+
+ background-color: #fff;
+
+}
+.error{
+  color:rgb(146, 0, 0);
+  font-size: 0.7em;
+}
+label{
+  display: block;
+}

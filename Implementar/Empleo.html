@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/MenuPrincipal.css"/>
+    <link rel="stylesheet" href="css/grid.css" />
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+
+    <title>Empleo</title>
+  </head>
+  <body>
+    <header class="row" id="home">
+       <nav class="Secundario" class="tab-content row">
+             <ul  class="row">
+               <li  class="col-s-12 col-m-4 col-x"><a href="Historias.html">Historia</a></li>
+               <li  class="col-s-12 col-m-4 col-x"><a href="Empleo.html">Empleo</a></li>
+               <li  class="col-s-12 col-m-4 col-x"><a href="Ayudas.html">Donaciones</a></li>
+               <li  class="col-s-12 col-m-6 col-x"><a href="Calidad.html">Calidad de Comida</a></li>
+                <li  class="col-s-12 col-m-6 col-x"><a href="Contacto.html">Contáctactanos</a></li>
+               </ul>
+             </nav>
+             <nav class="Principal" class="tab-content row">
+               <ul class="row">
+                 <li class="col-s-12 col-m-6 col-4"><a href="MenuPollio.html">MENU</a></li>
+                 <li class="col-s-12 col-m-6 col-4"><a href="MenuPrincipal.html">MENU PRINCIPAL</a></li>
+                 <li class="col-s-12 .col-offset-m-6  col-4"><a href="Encuentranos.html">UBICACION</a></li>
+
+               </ul>
+             </nav>
+    </header>
+      <h1 class="col-s-12 col-m-8 col-6 col-offset-m-2 col-offset-3">Datos de Aplicación</h1>
+    <section class="row">
+    <form id="formToValidate" method="post" action="Empleo.html" class="col-s-12 col-6 col-offset-3">
+      <fieldset class="row">
+        <label for="txtNombre">Nombre Completo</label>
+        <input class="material col-s-12" type="text" name="txtNombre" id="txtNombre"
+          placeholder="Escriba su Nombre Completo"/>
+        <span class="error" id="txtNombreError"></span>
+      </fieldset>
+        <fieldset class="row">
+          <label for="txtDireccion">Dirección de Domicilio</label>
+          <input class="material col-s-12" type="text" name="txtDireccion" id="txtDireccion"
+            placeholder="Escriba su Dirección de Domicilio"/>
+          <span class="error" id="txtDireccionError"></span>
+
+        </fieldset>
+        <fieldset class="row">
+          <label for="txtFecha">Fecha de Nacimiento</label>
+          <input class="material col-s-12" type="date" name="txtFecha" id="txtFecha"
+            placeholder="Escriba su fecha de nacimiento"/>
+          <span class="error" id="txtFechaError"></span>
+
+        </fieldset>
+      <fieldset>
+        <label for="txtCorreo">Correo Electrónico</label>
+        <input class="material col-s-12" type="email" name="txtCorreo" id="txtCorreo" placeholder="Escriba su Correo Electrónico" /><br>
+        <span class="error"  id="txtCorreoError"></span>
+      </fieldset>
+      <fieldset>
+        <label for="txtTelefono">Teléfono</label>
+        <input class="material col-s-12" type="text" name="txtTelefono" id="txtTelefono" placeholder="Escriba su Número Telefónico" /><br>
+        <span class="error"  id="txtTelefonoError"></span>
+      </fieldset>
+      <fieldset class="row">
+            <legend>Género</legend>
+            <input  id="rbtMasculino" name="rbtGenero" value="M" type="radio" />
+            <a for="rbtMasculino">Masculino</a> &nbsp;
+            <input id="rbtFemenino" name="rbtGenero" value="F" type="radio" />
+            <a for="rbtFemenino">Femenino</a>
+            <input id="rbtOtros" name="rbtGenero" value="O" type="radio" checked />
+            <a for="rbtOtros">Otros</a>
+        </fieldset>
+    <fieldset>
+      <label for="cmbTrabajo">Trabajo al que desea aplicar</label>
+        <select id="cmbTrabajo" name="cmbTrabajo">
+            <option value="Cocinero">Cocinero</option>
+            <option value="Repartidor">Repartidor</option>
+            <option value="Mesero">Mesero</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Conserje">Conserje</option>
+        </select>
+        <span class="error"  id="cmbCombo"></span>
+    </fieldset>
+    <fieldset>
+        <button class="primary col-s-12 col-m-4 col-3 col-offset-m-8 col-offset-9" type="submit" id="btnGuardar">Enviar</button>
+      </fieldset>
+    </form>
+  </section>
+
+
+    <nav class="Ultimo">
+      <ul>
+        <li><a href="MenuPollio.html">MENU</a></li>
+        <li><a href="MenuPrincipal.html">MENU PRINCIPAL</a></li>
+        <li><a href="Encuentranos.html">UBICACION</a></li>
+        <li><a href="#home">subir /\</a></li>
+      </ul>
+    </nav>
+
+  </body>
+  <footer>
+      <span>Derechos Reservados &copy;UNICAH 2018</span>
+  </footer>
+    <script src="js/Validar.js"></script>
+</html>

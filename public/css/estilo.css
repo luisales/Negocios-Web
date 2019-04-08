@@ -11,6 +11,10 @@ body, .menu, .contenido, .footer {
   box-sizing: border-box;
 }
 
+img {
+  width: 50%;
+  border: 20px green;
+}
 
 .menu {
   position: fixed;
@@ -126,6 +130,7 @@ body, .menu, .contenido, .footer {
   .menu .brand {
     width: auto !important;
   }
+
   .menu ul {
     position: absolute;
     right: 0px;

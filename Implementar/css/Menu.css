@@ -1,0 +1,219 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  line-height: 2;
+  font-size: 20px;
+  font-size: 100%;
+  font-size: 1em;
+  width: 100%;
+}
+header{
+  box-sizing: border-box;
+  margin: 0px;
+  padding:0px;
+  border: 0px;
+  width: 100%;
+
+}
+nav ul {
+ list-style: none;
+ text-align:center;
+ padding: 0px;
+ margin: 0px;
+ width: 100%;
+}
+
+.Principal{
+font-family: 'Luckiest Guy', sans-serif;
+font-size: 25px;
+background-color: #FF522D;
+}
+.Ultimo{
+font-family: 'Luckiest Guy', sans-serif;
+font-size: 18px;
+background-color: #FF522D;
+}
+.subir{
+
+ color: #000;
+}
+nav ul li{
+  display:inline;
+}
+
+nav ul li a{
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 1em 1.25em;
+  text-decoration: none;
+color: #000 ;
+}
+.Secundario{
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.Secundario li{
+  padding: 0px;
+}
+
+ nav ul li a:hover {
+  color: #FFDC00;
+  border-radius: 10px;
+  background-color: #66B95C;
+}
+
+
+footer{
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.hero{          /*Primera Imagen*/
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  width:100%;
+  height:75px;
+  min-height: 520px;
+  background-color: #000;
+  background-image: url('../imgs/Pollo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 20px;
+
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  ul{
+      text-align: center;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+
+  }
+
+.botom li a{
+display: block;
+  font-family: 'Luckiest Guy', sans-serif;
+padding: 13px;
+padding-top: 10px;
+color: #333;
+border-radius: 10px;
+border:solid 5px #000;
+text-decoration:none ;
+background-color: #FA9632;
+font-size: 25px;
+}
+
+* {
+  box-sizing: border-box;
+}
+.botom li a:hover{
+  background-color: #87BA81;
+  opacity: 0.8;
+border:dotted 5px #FA9632;
+}
+
+
+#first-block   {    /*Primer bloque*/
+  background-color: #FA9632;
+  color: #fff;
+  height:inherit;
+  padding: 0px;
+  padding-top: 0px;
+  text-align: center;
+
+}
+
+h4{
+  font-size: 35px;
+  text-align: center;
+  font-family: 'Luckiest Guy', sans-serif;
+}
+p{
+  font-family: 'Luckiest Guy', sans-serif;
+    font-size: 25px;
+}
+
+
+#first-block h1{
+  padding-top: 0px;
+  font-size: 50px;
+}
+
+h1{
+    font-family: 'Luckiest Guy', sans-serif;
+  text-align: center;
+}
+
+#titulo{
+  font-size: 35px;
+  text-align: center;
+  font-style: italic;
+  font-style: oblique;
+
+}
+
+#first-block div {
+  display: block;
+}
+
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+.tab-item>div>div>div {
+    background-color: #D2F692;
+    text-align: justify;
+}
+.tab-content>div>div {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0px 0px 3px rgb(51,51,51);
+}
+
+.menu section{
+  background:#333;
+}
+
+img{
+
+  width: 100%;
+  height: 100%;
+  object-fit:scale-down;
+
+
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+.tab-item>div>div>div {
+    background-color: #D2F692;
+    text-align: justify;
+}
+
+
+.no-margin {margin: 0px !important}
+.col-s-12 {width: 100%}
+.col-m-3 { width: 25%  }
+.col-3 { width: 25%  }
