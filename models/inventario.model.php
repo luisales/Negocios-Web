@@ -20,7 +20,7 @@
           sprintf(
               $insSql,
               $data["nomInventario"],
-              $data["canInventario"],
+              $data["canInventario"]
 
           )
       );

@@ -8,14 +8,6 @@
     $productos = obtenerRegistros($sqlstr);
     return $productos;
   }
-
-  /**
-   * Agrega Nuevo Producto a la tabla de productos
-   *
-   * @param Array $data arreglo con los campos del formulario
-   *
-   * @return integer Devuelve el id del producto generado.
-   */
   function agregarNuevoProducto($data)
   {
       $insSql = "INSERT INTO `productos`

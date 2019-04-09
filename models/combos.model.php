@@ -24,7 +24,7 @@
               $data["preCombo"],
               $data["catCombo"],
               $data["urlCombo"],
-              $data["comCombo"],
+              $data["comCombo"]
           )
       );
       if ($result) {

@@ -7,6 +7,11 @@ function generarMenu($usercod)
     $menu = array();
     if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"dashboard","mdldsc"=>"Administración");
     addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"inventarios","mdldsc"=>"Inventario");
+    addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"combos","mdldsc"=>"Carta de Menu");
+    addToContext('appmenu', $menu);
+
 }
 
 function isAuthorized($assetCode, $usercod)
