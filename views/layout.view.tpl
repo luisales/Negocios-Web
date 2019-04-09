@@ -21,7 +21,7 @@
               <div class="hbtn"> <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div>
           </div>
             <div class="contenido">
-              <p>hola</p>
+
                 {{{page_content}}}
             </div>
 

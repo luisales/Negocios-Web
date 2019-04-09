@@ -126,21 +126,12 @@ case "pais":
             include_once "controllers/combo.control.php":
             mw_redirectToLogin($_SERVER["QUERY_STRING"]);
             die();
-case "pollos":
-    ($logged)?
-    include_once "controllers/pollos.control.php":
-    mw_redirectToLogin($_SERVER["QUERY_STRING"]);
-    die();
-    case "complementos":
-        ($logged)?
-        include_once "controllers/complementos.control.php":
-        mw_redirectToLogin($_SERVER["QUERY_STRING"]);
-        die();
-        case "combomenu":
-            ($logged)?
-            include_once "controllers/combomenu.control.php":
-            mw_redirectToLogin($_SERVER["QUERY_STRING"]);
-            die();
+            case "inventarios":
+                ($logged)?
+                include_once "controllers/inventarios.control.php":
+                mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                die();
+
 }
 
 addToContext("pageRequest", $pageRequest);

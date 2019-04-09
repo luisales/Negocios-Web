@@ -1,48 +1,47 @@
 
 
 
-<h1>Gestion de combos y productos</h1>
+<h1>Gestion de inventario</h1>
 <h2>{{nombre}}</h2>
 <section class="row">
 <table class="col-10 col-offset-1">
   <thead>
     <tr>
       <th>Código</th>
-      <th>Combo</th>
-      <th>Precio</th>
-      <th>Descripción</th>
-      <th>Categoria</th>
+      <th>Producto</th>
+
+      <th>Cantidad</th>
+
       <th>
-        <a href="index.php?page=combo&mode=INS&codCombo=" class="btn">
+        <a href="index.php?page=inventario&mode=INS&codInventario=" class="btn">
           +
         </a>
       </th>
     </tr>
   </thead>
   <tbody>
-    {{foreach combos}}
+    {{foreach inventarios}}
     <tr>
-      <td>{{codCombo}}</td>
-      <td><a href="index.php?page=combo&mode=DSP&codCombo={{codCombo}}">{{desCombo}}</a></td>
-<td>{{preCombo}}</td>
-      <td>{{comCombo}}</td>
-      <td>{{catCombo}}</td>
+      <td>{{codInventario}}</td>
+      <td><a href="index.php?page=inventario&mode=DSP&codInventario={{codInventario}}">{{nomInventario}}</a></td>
+<td>{{canInventario}}</td>
+
       <td>
         <form action="index.php" method="GET">
           <input name="page" value="combo" type="hidden"/>
           <input name="mode" value="UPD" type="hidden"/>
-          <input name="codCombo" value="{{codCombo}}" type="hidden"/>
+          <input name="codInventario" value="{{codInventario}}" type="hidden"/>
           <button type="submit">Editar</button>
         </form>
         <form action="index.php" method="GET">
           <input name="page" value="combo" type="hidden" />
           <input name="mode" value="DEL" type="hidden" />
-          <input name="codCombo" value="{{codCombo}}" type="hidden" />
+          <input name="codInventario" value="{{codInventario}}" type="hidden" />
           <button type="submit">Eliminar</button>
         </form>
       </td>
     </tr>
-    {{endfor combos}}
+    {{endfor inventarios}}
   </tbody>
 </table>
 </section>

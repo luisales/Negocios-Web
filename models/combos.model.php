@@ -34,6 +34,7 @@
       return false;
   }
 
+
   function obtieneComboPorId($codCombo)
   {
       $sqlstr = "Select * from combos where codCombo=%d;";
