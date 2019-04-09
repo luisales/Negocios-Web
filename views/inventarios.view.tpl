@@ -28,13 +28,13 @@
 
       <td>
         <form action="index.php" method="GET">
-          <input name="page" value="combo" type="hidden"/>
+          <input name="page" value="inventario" type="hidden"/>
           <input name="mode" value="UPD" type="hidden"/>
           <input name="codInventario" value="{{codInventario}}" type="hidden"/>
           <button type="submit">Editar</button>
         </form>
         <form action="index.php" method="GET">
-          <input name="page" value="combo" type="hidden" />
+          <input name="page" value="inventario" type="hidden" />
           <input name="mode" value="DEL" type="hidden" />
           <input name="codInventario" value="{{codInventario}}" type="hidden" />
           <button type="submit">Eliminar</button>
