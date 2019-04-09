@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-04-2019 a las 23:14:07
+-- Tiempo de generación: 09-04-2019 a las 21:47:10
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -67,10 +67,10 @@ CREATE TABLE `combos` (
 --
 
 INSERT INTO `combos` (`codCombo`, `desCombo`, `preCombo`, `catCombo`, `urlCombo`, `comCombo`) VALUES
-(2, 'Pizza', '2020', 'COM', 'http://www.happyfoodstube.com/wp-content/uploads/2016/02/Calzone-Pizza-Slices-e1459845640761.jpg', 'Pizza individual'),
+(2, 'Pollo Entero', '2020', 'IND', 'http://www.happyfoodstube.com/wp-content/uploads/2016/02/Calzone-Pizza-Slices-e1459845640761.jpg', 'Un pollo entero para disfrutar con tu familia'),
 (3, 'Calzon', '2500', 'COM', '2', ''),
 (4, 'pizza2', '2', 'IND', '', ''),
-(5, 'luis', '20', 'CMB', '', 'sd');
+(5, 'Combo de papas y pollo', '2500', 'CMB', 'http://www.polloscarioca.com/images/seleccion-interno/combo3.jpg', 'Medio pollo y una orden de papas ');
 
 -- --------------------------------------------------------
 
@@ -120,9 +120,12 @@ INSERT INTO `funciones` (`fncod`, `fndsc`, `fnest`, `fntyp`) VALUES
 ('combos', 'combos', 'ACT', 'PRG'),
 ('complementos', 'complementos', 'ACT', 'PRG'),
 ('dashboard', 'Menu Principal de Administración', 'ACT', 'PGR'),
+('inventario', 'inventario', 'ACT', 'PRG'),
+('inventarios', 'inventarios', 'ACT', 'PRG'),
 ('pais', 'pais', 'ACT', 'PRG'),
 ('paises', 'paises', 'ACT', 'PRG'),
 ('pollos', 'pollos', 'ACT', 'PRG'),
+('producto', 'producto', 'ACT', 'PRG'),
 ('productos', 'productos', 'ACT', 'PRG'),
 ('programa', 'Función', 'ACT', 'PGR'),
 ('programas', 'Trabajar con Funciones', 'ACT', 'PGR'),
@@ -143,6 +146,47 @@ CREATE TABLE `funciones_roles` (
   `fnrolest` char(3) DEFAULT NULL,
   `fnexp` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `intermedia`
+--
+
+CREATE TABLE `intermedia` (
+  `codInventario` int(11) NOT NULL,
+  `codCombo` int(11) NOT NULL,
+  `canIntermedia` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `intermedia`
+--
+
+INSERT INTO `intermedia` (`codInventario`, `codCombo`, `canIntermedia`) VALUES
+(1, 5, 1),
+(2, 5, 0.5),
+(2, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inventario`
+--
+
+CREATE TABLE `inventario` (
+  `codInventario` int(11) NOT NULL,
+  `nomInventario` text NOT NULL,
+  `canInventario` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `inventario`
+--
+
+INSERT INTO `inventario` (`codInventario`, `nomInventario`, `canInventario`) VALUES
+(1, 'Papas', 96),
+(2, 'Pollos', 878.5);
 
 -- --------------------------------------------------------
 
@@ -244,6 +288,19 @@ ALTER TABLE `funciones_roles`
   ADD KEY `rol_funcion_key_idx` (`fncod`);
 
 --
+-- Indices de la tabla `intermedia`
+--
+ALTER TABLE `intermedia`
+  ADD KEY `codInventario` (`codInventario`),
+  ADD KEY `codCombo` (`codCombo`);
+
+--
+-- Indices de la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  ADD PRIMARY KEY (`codInventario`);
+
+--
 -- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -293,6 +350,12 @@ ALTER TABLE `factura`
   MODIFY `codFactura` int(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `inventario`
+--
+ALTER TABLE `inventario`
+  MODIFY `codInventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -315,6 +378,13 @@ ALTER TABLE `detallefactura`
 ALTER TABLE `funciones_roles`
   ADD CONSTRAINT `funcion_rol_key` FOREIGN KEY (`rolescod`) REFERENCES `roles` (`rolescod`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `rol_funcion_key` FOREIGN KEY (`fncod`) REFERENCES `funciones` (`fncod`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `intermedia`
+--
+ALTER TABLE `intermedia`
+  ADD CONSTRAINT `intermedia_ibfk_1` FOREIGN KEY (`codCombo`) REFERENCES `combos` (`codCombo`),
+  ADD CONSTRAINT `intermedia_ibfk_2` FOREIGN KEY (`codInventario`) REFERENCES `inventario` (`codInventario`);
 
 --
 -- Filtros para la tabla `roles_usuarios`
