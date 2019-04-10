@@ -3,8 +3,8 @@
 
 <h1>Gestion de inventario</h1>
 <h2>{{nombre}}</h2>
-<section class="row">
-<table class="col-10 col-offset-1">
+<section >
+<table   class="col-10 col-offset-1">
   <thead>
     <tr>
       <th>Código</th>
@@ -22,9 +22,9 @@
   <tbody>
     {{foreach inventarios}}
     <tr>
-      <td>{{codInventario}}</td>
-      <td><a href="index.php?page=inventario&mode=DSP&codInventario={{codInventario}}">{{nomInventario}}</a></td>
-<td>{{canInventario}}</td>
+      <td style="text-align:center;" >{{codInventario}}</td>
+      <td style="text-align:center;"><a href="index.php?page=inventario&mode=DSP&codInventario={{codInventario}}">{{nomInventario}}</a></td>
+<td style="text-align:center;">{{canInventario}}</td>
 
       <td>
         <form action="index.php" method="GET">

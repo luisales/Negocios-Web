@@ -13,7 +13,7 @@
 </div>
 
 <div class="row depth-1">
-  <table class="col-md-12">
+  <table class="blueTable"   class="col-md-12">
     <thead>
       <tr>
         <th>Correo</th>

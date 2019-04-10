@@ -5,6 +5,7 @@
             <title>{{page_title}}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+              <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
             <link rel="stylesheet" href="public/css/estilo.css" />
             <link rel="stylesheet" href="public/css/grid.css" />
             <script src="public/js/jquery.min.js"></script>

@@ -24,7 +24,7 @@ function isAuthorized($assetCode, $usercod)
         return true;
     }
     if ($_SESSION["userType"] == 'USR') {
-        return false;
+        return true;
     }
     return estaAutorizado($usercod, $assetCode);
 }

@@ -4,7 +4,7 @@
 <h1>Detalle</h1>
 <h2>{{nombre}}</h2>
 <section class="row">
-<table class="col-10 col-offset-1">
+<table   class="col-10 col-offset-1">
   <thead>
     <tr>
       <th>Código</th>

@@ -4,7 +4,7 @@
 <h1>Gestion de Menú</h1>
 
 <section class="row">
-<table class="col-10 col-offset-1">
+<table class="blueTable"  class="col-10 col-offset-1">
   <thead>
     <tr>
       <th>Código</th>
