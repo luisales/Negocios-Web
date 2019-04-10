@@ -4,7 +4,7 @@
             <meta charset="utf-8" />
             <title>{{page_title}}</title>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
+            <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
             <link rel="stylesheet" href="public/css/estilo.css" />
             <link rel="stylesheet" href="public/css/grid.css" />
             <script src="public/js/jquery.min.js"></script>
@@ -22,7 +22,7 @@
                       <span class="ion-android-notifications">&nbsp;{{notifnum}}</span></a>
                     </li>
                     {{endif notifnum}}
-                    
+
                     {{foreach appmenu}}
                       <li><a href="index.php?page={{mdlprg}}">{{mdldsc}}</a></li>
                     {{endfor appmenu}}
@@ -33,17 +33,9 @@
             <div class="contenido">
                 {{{page_content}}}
             </div>
-            <nav class="Ultimo">
-              <ul>
-                <li><a href="MenuPollio.html">MENU</a></li>
-                <li><a href="MenuPrincipal.html">MENU PRINCIPAL</a></li>
-                <li><a href="Encuentranos.html">UBICACION</a></li>
-                <li><a href="#home">subir /\</a></li>
-              </ul>
-            </nav>
-            <div class="footer">
-                Derechos Reservados 2018
-            </div>
+
+
+
             {{foreach js_ref}}
                 <script src="{{uri}}"></script>
             {{endfor js_ref}}

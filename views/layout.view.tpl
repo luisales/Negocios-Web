@@ -13,6 +13,7 @@
             {{endfor css_ref}}
         </head>
         <body>
+
           <div class="menu">
               <div class="brand"><a href="index.php?page=home">{{page_title}}</a></div>
               <ul>

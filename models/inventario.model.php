@@ -10,7 +10,7 @@
   }
 
 
-  function agregarNuevoInventario($data)
+  function agregarNuevoInv($data)
   {
       $insSql = "INSERT INTO `inventario`
   (`nomInventario`, `canInventario`)
@@ -32,7 +32,7 @@
   }
 
 
-  function obtieneInventarioPorId($codInventario)
+  function obtieneInvPorId($codInventario)
   {
       $sqlstr = "Select * from Inventario where codInventario=%d;";
       return obtenerUnRegistro(sprintf($sqlstr, $codInventario));
@@ -40,9 +40,9 @@
 
 
 
-  function actualizarInventario($data)
+  function actualizarInv($data)
   {
-      $updSql = "UPDATE `combos` set
+      $updSql = "UPDATE `inventario` set
    `nomInventario` = '%s', `canInventario` = %f
      where `Inventario`.`codInventario` = %d;";
 
@@ -58,9 +58,9 @@
   }
 
 
-  function eliminaInventario($codInventario)
+  function eliminarInv($codInventario)
   {
-      $delSql = "delete from `combos` where codInventario = %d;";
+      $delSql = "delete from `inventario` where codInventario = %d";
       return ejecutarNonQuery(
           sprintf(
               $delSql,

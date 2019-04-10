@@ -1,11 +1,23 @@
 <?php
 
 
-require_once 'models/paises.model.php';
+require_once 'models/inventario.model.php';
 require_once 'libs/validadores.php';
 function run()
 {
     $viewData = Array();
+    /*
+    prdcod bigint(18) UN AI PK
+    prddsc varchar(128)
+    prdcodbrr varchar(45)
+    prdSKU varchar(45)
+    prdStock int(8)
+    prdPrcVVnt decimal(13,4)
+    prdPrcCpm decimal(13,4)
+    prdImgUri varchar(255)
+    prdEst char(3)
+    prdBio mediumtext
+     */
     $modeDescriptions = array(
       "UPD" => "Actualizando ",
       "DEL" => "Eliminando ",
@@ -21,130 +33,132 @@ function run()
     $viewData["isupdate"] = false;
     $viewData["isinsert"] = false;
 
-    $viewData["paiscod"] = "";
-    $viewData["paisdsc"] = "";
-    $viewData["paisgeo"] = "";
-    $viewData["paisfecha"] = "";
-    $viewData["paisusuario"] = "";
+
+    $viewData["codInventario"] = "";
+    $viewData["nomInventario"] = "";
+    $viewData["canInventario"] = "";
 
 
 
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
         if (isset($_GET["mode"])) {
             $viewData["mode"] = $_GET["mode"];
-            $viewData["paiscod"] = $_GET["paiscod"];
+            $viewData["codInventario"] = $_GET["codInventario"];
             switch($viewData["mode"])
             {
             case 'INS':
-                $viewData["modeDsc"] = "Nuevo Pais";
+                $viewData["modeDsc"] = "Nuevo Producto";
                 $viewData["isinsert"] = true;
                 break;
             case 'UPD':
-                if (isset($_GET["paiscod"])) {
-                    $viewData["paiscod"] =  $_GET["paiscod"];
+                if (isset($_GET["codInventario"])) {
+                    $viewData["codInventario"] =  $_GET["codInventario"];
                 } else {
                     redirectWithMessage(
-                        "Código de  Pais no Válido",
-                        "index.php?page=paises"
+                        "Código de Producto no Válido",
+                        "index.php?page=combos"
                     );
                     die();
                 }
                 break;
             case 'DEL':
                 $viewData["readonly"] = "readonly";
-                if (isset($_GET["paiscod"])) {
-                    $viewData["paiscod"] =  $_GET["paiscod"];
+                if (isset($_GET["codInventario"])) {
+                    $viewData["codInventario"] =  $_GET["codInventario"];
                 } else {
                     redirectWithMessage(
-                        "Código de Pais no Válido",
-                        "index.php?page=paises"
+                        "Código de Producto no Válido",
+                        "index.php?page=combos"
                     );
                     die();
                 }
                 break;
             case 'DSP':
                 $viewData["readonly"] = "readonly";
-                if (isset($_GET["paiscod"])) {
-                    $viewData["paiscod"] =  $_GET["paiscod"];
+                if (isset($_GET["codInventario"])) {
+                    $viewData["codInventario"] =  $_GET["codInventario"];
                 } else {
                     redirectWithMessage(
-                        "Código de pais no Válido",
-                        "index.php?page=paises"
+                        "Código de Producto no Válido",
+                        "index.php?page=combos"
                     );
                     die();
                 }
                 break;
             }
-            $viewData["tocken"] = md5(time().'paises');
-            $_SESSION["pais_tocken"] = $viewData["tocken"];
+            $viewData["tocken"] = md5(time().'combos');
+            $_SESSION["inventario_tocken"] = $viewData["tocken"];
         }
     }
-
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["tocken"])
-            && $_POST["tocken"] === $_SESSION["pais_tocken"]
+            && $_POST["tocken"] === $_SESSION["inventario_tocken"]
         ) {
              mergeFullArrayTo($_POST, $viewData);
             $viewData["mode"] = $_POST["mode"];
-            $viewData["paiscod"] = $_POST["paiscod"];
-            $viewData["tocken"] = md5(time().'paises');
-            $_SESSION["pais_tocken"] = $viewData["tocken"];
+            $viewData["codInventario"] = $_POST["codInventario"];
+            $viewData["tocken"] = md5(time().'combos');
+            $_SESSION["inventario_tocken"] = $viewData["tocken"];
 
             switch($viewData["mode"])
             {
             case 'INS':
-                $viewData["modeDsc"] = "Nuevo Pais";
+                $viewData["modeDsc"] = "Nuevo Producto";
                 $viewData["isinsert"] = true;
-                /// validar la data
 
                 //$viewData["errores"] = Array();
                 //$viewData["haserrores"] = false;
                 if (!$viewData["haserrores"]) {
                     /// llamamos al modelo de datos para insertar el producto
-                    $lastID = agregarNuevoPais($_POST);
-
-                        redirectWithMessage("Pais Agregado Satisfactorimente", "index.php?page=paises");
-
+                    $lastID = agregarNuevoInv($_POST);
+                    if ($lastID) {
+                        redirectWithMessage("Producto Agregado Satisfactorimente", "index.php?page=inventarios");
+                        die();
+                    } else {
+                        $viewData["errores"][] = "No se pudo agregar el producto";
+                        $viewData["haserrores"] = true;
                     }
-
+                }
                 break;
             case 'UPD':
-                $result = actualizarPais($_POST);
+                $result = actualizarInv($_POST);
                 if ($result) {
-                    redirectWithMessage("Pais Actualizado Satisfactorimente", "index.php?page=paises");
+                    redirectWithMessage("Producto Actualizado Satisfactorimente", "index.php?page=inventarios");
                     die();
                 } else {
-                     $viewData["errores"][] = "No se pudo Actualizar el pais";
+                     $viewData["errores"][] = "No se pudo Actualizar el producto";
                      $viewData["haserrores"] = true;
                 }
                 break;
             case 'DEL':
-                $result = eliminarPais($_POST["paiscod"]);
+
+                $result = eliminarInv($_POST["codInventario"]);
                 if ($result) {
-                    redirectWithMessage("Pais Eliminado Satisfactorimente", "index.php?page=paises");
+                    redirectWithMessage("Producto Eliminado Satisfactorimente", "index.php?page=inventarios");
                     die();
                 } else {
-                     $viewData["errores"][] = "No se pudo Eliminar el Pais";
+                     $viewData["errores"][] = "No se pudo Eliminar el producto";
                      $viewData["haserrores"] = true;
                 }
                 break;
             }
         } else {
-            $viewData["tocken"] = md5(time().'paises');
-            $_SESSION["producto_tocken"] = $viewData["tocken"];
+            $viewData["tocken"] = md5(time().'combos');
+            $_SESSION["inventario_tocken"] = $viewData["tocken"];
             $viewData["errores"][] = "No se pudo validar la información";
             $viewData["haserrores"] = true;
         }
     }
 
     //Si viene el codigo del producto buscamos el producto en el modelo de datos
-    if ($viewData["paiscod"]!=='') {
-        $dbPais = obtienePaisPorId($viewData["paiscod"]);
+    if ($viewData["codInventario"]!=='') {
+        $dbInventario = obtieneInvPorId($viewData["codInventario"]);
 
-        mergeFullArrayTo($dbPais, $viewData);
+        mergeFullArrayTo($dbInventario, $viewData);
 
+}
         $viewData["modeDsc"] = $modeDescriptions[$viewData["mode"]] .
-            $viewData["paiscod"];
+            $viewData["nomInventario"];
 /*
         $viewData["prddsc"] = $dbProducto[""];
         $viewData["prdcodbrr"] = $dbProducto[""];
@@ -156,8 +170,8 @@ function run()
         $viewData["prdEst"] = "";
         $viewData["prdBio"] = "";
         */
-    }
-    renderizar("pais", $viewData);
+
+    renderizar("inventario", $viewData);
 }
 
 run();

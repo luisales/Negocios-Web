@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2019 a las 21:47:10
+-- Tiempo de generación: 11-04-2019 a las 00:21:58
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -68,9 +68,10 @@ CREATE TABLE `combos` (
 
 INSERT INTO `combos` (`codCombo`, `desCombo`, `preCombo`, `catCombo`, `urlCombo`, `comCombo`) VALUES
 (2, 'Pollo Entero', '2020', 'IND', 'http://www.happyfoodstube.com/wp-content/uploads/2016/02/Calzone-Pizza-Slices-e1459845640761.jpg', 'Un pollo entero para disfrutar con tu familia'),
-(3, 'Calzon', '2500', 'COM', '2', ''),
+(3, 'Calzon', '2500', 'IND', '2', ''),
 (4, 'pizza2', '2', 'IND', '', ''),
-(5, 'Combo de papas y pollo', '2500', 'CMB', 'http://www.polloscarioca.com/images/seleccion-interno/combo3.jpg', 'Medio pollo y una orden de papas ');
+(5, 'Combo de papas y pollo', '2500', 'CMB', 'http://www.polloscarioca.com/images/seleccion-interno/combo3.jpg', 'Medio pollo y una orden de papas '),
+(6, 'Medio Pollo', '70', 'IND', 'https://media-cdn.tripadvisor.com/media/photo-s/0a/7b/86/6e/medio-pollo.jpg', 'Rica orden de medio pollo');
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,35 @@ CREATE TABLE `detallefactura` (
   `cantidad` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `detallefactura`
+--
+
+INSERT INTO `detallefactura` (`codFactura`, `detFactura`, `codCombo`, `cantidad`) VALUES
+(8, 1, 2, 1),
+(9, 2, 3, 1),
+(10, 4, 4, 1),
+(11, 6, 5, 1),
+(12, 19, 2, 1),
+(13, 21, 5, 1),
+(14, 23, 2, 1),
+(15, 25, 5, 1),
+(16, 27, 2, 1),
+(6, 29, 3, 2),
+(2, 30, 5, 3),
+(1, 32, 5, 3),
+(17, 33, 2, 1),
+(17, 34, 5, 1),
+(18, 35, 2, 1),
+(18, 36, 3, 1),
+(19, 37, 5, 1),
+(20, 38, 5, 1),
+(21, 39, 5, 1),
+(22, 40, 2, 1),
+(23, 41, 5, 1),
+(24, 42, 5, 1),
+(25, 43, 5, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -93,9 +123,41 @@ CREATE TABLE `detallefactura` (
 
 CREATE TABLE `factura` (
   `codFactura` int(20) NOT NULL,
-  `codCliente` bigint(20) NOT NULL,
-  `fecFactura` date NOT NULL
+  `fecFactura` date NOT NULL,
+  `estFactura` text NOT NULL,
+  `horFactura` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`codFactura`, `fecFactura`, `estFactura`, `horFactura`) VALUES
+(1, '2019-04-10', 'ACT', ''),
+(2, '2019-04-10', 'INC', ''),
+(3, '2019-04-10', 'INC', ''),
+(4, '2019-04-10', 'INC', ''),
+(5, '2019-04-10', 'INC', ''),
+(6, '2019-04-16', 'ACT', '12:30'),
+(7, '0000-00-00', 'INC', '12:32'),
+(8, '0000-00-00', 'ACT', '12:38'),
+(9, '0000-00-00', 'ACT', '12:38'),
+(10, '0000-00-00', 'ACT', '12:41'),
+(11, '0000-00-00', 'ACT', '12:42'),
+(12, '0000-00-00', 'ACT', '12:43'),
+(13, '0000-00-00', 'ACT', '12:45'),
+(14, '0000-00-00', 'INC', '12:45'),
+(15, '0000-00-00', 'ACT', '12:45'),
+(16, '2019-04-10', 'ACT', '12:46'),
+(17, '2019-04-10', 'ACT', '12:50'),
+(18, '2019-04-10', 'ACT', '12:59'),
+(19, '2019-04-10', 'ACT', '03:02'),
+(20, '2019-04-10', 'ACT', '03:02'),
+(21, '2019-04-10', 'ACT', '03:02'),
+(22, '2019-04-10', 'ACT', '03:04'),
+(23, '2019-04-10', 'ACT', '03:05'),
+(24, '2019-04-10', 'ACT', '03:05'),
+(25, '2019-04-10', 'ACT', '03:06');
 
 -- --------------------------------------------------------
 
@@ -115,13 +177,19 @@ CREATE TABLE `funciones` (
 --
 
 INSERT INTO `funciones` (`fncod`, `fndsc`, `fnest`, `fntyp`) VALUES
+('admin', 'admin', 'ACT', 'PRG'),
 ('combo', 'combo', 'ACT', 'PRG'),
 ('combomenu', 'combomenu', 'ACT', 'PRG'),
 ('combos', 'combos', 'ACT', 'PRG'),
 ('complementos', 'complementos', 'ACT', 'PRG'),
 ('dashboard', 'Menu Principal de Administración', 'ACT', 'PGR'),
+('factura', 'factura', 'ACT', 'PRG'),
+('facturas', 'facturas', 'ACT', 'PRG'),
+('intermedio', 'intermedio', 'ACT', 'PRG'),
+('intermedios', 'intermedios', 'ACT', 'PRG'),
 ('inventario', 'inventario', 'ACT', 'PRG'),
 ('inventarios', 'inventarios', 'ACT', 'PRG'),
+('invermedios', 'invermedios', 'ACT', 'PRG'),
 ('pais', 'pais', 'ACT', 'PRG'),
 ('paises', 'paises', 'ACT', 'PRG'),
 ('pollos', 'pollos', 'ACT', 'PRG'),
@@ -164,9 +232,10 @@ CREATE TABLE `intermedia` (
 --
 
 INSERT INTO `intermedia` (`codInventario`, `codCombo`, `canIntermedia`) VALUES
-(1, 5, 1),
-(2, 5, 0.5),
-(2, 2, 1);
+(3, 3, 2),
+(2, 2, 1),
+(2, 5, 1),
+(1, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -185,8 +254,9 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`codInventario`, `nomInventario`, `canInventario`) VALUES
-(1, 'Papas', 96),
-(2, 'Pollos', 878.5);
+(1, 'Papas', 194),
+(2, 'Pollos', 797.5),
+(3, 'Arroz', 136);
 
 -- --------------------------------------------------------
 
@@ -264,15 +334,14 @@ ALTER TABLE `combos`
 --
 ALTER TABLE `detallefactura`
   ADD PRIMARY KEY (`detFactura`),
-  ADD UNIQUE KEY `codFactura` (`codFactura`),
-  ADD KEY `codCombo` (`codCombo`);
+  ADD KEY `codCombo` (`codCombo`),
+  ADD KEY `codFactura` (`codFactura`) USING BTREE;
 
 --
 -- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
-  ADD PRIMARY KEY (`codFactura`),
-  ADD KEY `codCliente` (`codCliente`) USING BTREE;
+  ADD PRIMARY KEY (`codFactura`);
 
 --
 -- Indices de la tabla `funciones`
@@ -335,25 +404,25 @@ ALTER TABLE `bitacora`
 -- AUTO_INCREMENT de la tabla `combos`
 --
 ALTER TABLE `combos`
-  MODIFY `codCombo` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codCombo` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `detallefactura`
 --
 ALTER TABLE `detallefactura`
-  MODIFY `detFactura` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `detFactura` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `codFactura` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `codFactura` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `codInventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codInventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

@@ -1,46 +1,24 @@
 <h1>{{modeDsc}}</h1>
 <section class="row">
-  <form action="index.php?page=combo&mode={{mode}}&codCombo={{codCombo}}"
+  <form action="index.php?page=factura&mode={{mode}}&codFactura={{codFactura}}"
       method="POST" class="col-8 col-offset-2">
-      <input type="hidden" name="codCombo" value="{{codCombo}}" />
+      <input type="hidden" name="codFactura" value="{{codFactura}}" />
       <input type="hidden" name="tocken" value="{{tocken}}" />
       <input type="hidden" name="mode" value="{{mode}}" />
+
+
       <div class="row">
-        <label class="col-5" for="desCombo">Nombre Combo</label>
-        <input type="text" id="desCombo" name="desCombo" value="{{desCombo}}"
-          placeholder="Nombre del Combo" maxlength="128"
-            class="col-7" {{readonly}}/>
-      </div>
-      <div class="row">
-        <label class="col-5" for="preCombo">Precio en Lempiras</label>
-        <input type="number" min="0" max="99999999" step="1" id="preCombo"
-          name="preCombo" value="{{preCombo}}"
-          placeholder="Precio del Combo" maxlength="8"
-          class="col-7" {{readonly}}/>
-      </div>
-      <div class="row">
-        <label class="col-5" for="catCombo" >Categoria</label>
-        <select name="catCombo" id="catCombo" class="col-7">
+        <label class="col-5" for="estFactura" >Estado</label>
+        <select name="estFactura" id="estFactura" class="col-7">
           {{foreach categoria}}
             <option value="{{cod}}" {{selected}}>{{dsc}}</option>
           {{endfor categoria}}
         </select>
       </div>
-      <div class="row">
-        <label class="col-5" for="comCombo">Descripción</label>
-        <input type="text" id="comCombo" name="comCombo" value="{{comCombo}}"
-          placeholder="Descripción del Combo" maxlength="128"
-            class="col-7" {{readonly}}/>
-      </div>
 
 
 
-      <div class="row">
-        <label class="col-5" for="urlCombo">Url de Imágen</label>
-        <input type="text" id="urlCombo" name="urlCombo" value="{{urlCombo}}"
-          placeholder="Url de Image" maxlength="255"
-          class="col-7" {{readonly}} />
-      </div>
+
       <div class="row">
         <div class="col-7 col-offset-5 center">
           <button id="btnProcesar">Confirmar</button>
@@ -54,7 +32,7 @@
           $("#btnCancelar").click(function(e){
               e.preventDefault();
               e.stopPropagation();
-              location.assign("index.php?page=combos");
+              location.assign("index.php?page=facturas");
           });
           $("#btnProcesar").click(function(e){
               e.preventDefault();

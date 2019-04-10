@@ -53,7 +53,8 @@ if ($logged) {
     addToContext("layoutFile", "verified_layout");
     include_once 'controllers/mw/autorizar.mw.php';
     if (!isAuthorized($pageRequest, $_SESSION["userCode"])) {
-        include_once"controllers/notauth.control.php";
+
+        echo '<script>window.location="Cart.php"</script>';
         die();
     }
     generarMenu($_SESSION["userCode"]);
@@ -131,6 +132,32 @@ case "pais":
                 include_once "controllers/inventarios.control.php":
                 mw_redirectToLogin($_SERVER["QUERY_STRING"]);
                 die();
+                case "inventario":
+                    ($logged)?
+                    include_once "controllers/inventario.control.php":
+                    mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                    die();
+                case "intermedios":
+                    ($logged)?
+                    include_once "controllers/intermedios.control.php":
+                    mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                    die();
+                    case "intermedio":
+                        ($logged)?
+                        include_once "controllers/intermedio.control.php":
+                        mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                        die();
+                        case "facturas":
+                            ($logged)?
+                            include_once "controllers/facturas.control.php":
+                            mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                            die();
+                            case "factura":
+                                ($logged)?
+                                include_once "controllers/factura.control.php":
+                                mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+                                die();
+
 
 }
 

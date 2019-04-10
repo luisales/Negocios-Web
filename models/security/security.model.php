@@ -130,19 +130,17 @@ function updateUsuario($usercod, $userName, $userEmail,
 //funciones adiciones para datos
 function getTiposUsuario(){
  return array(
-   array("codigo"=>"ADM","valor"=>"Administrador"),
-   array("codigo"=>"USR","valor"=>"Usuario"),
-   array("codigo"=>"CNS","valor"=>"Consultor"),
-   array("codigo"=>"CLT","valor"=>"Cliente")
+
+   array("codigo"=>"USR","valor"=>"Usuario")
+
  );
 }
 
 function getEstadoUsuario(){
  return array(
-   array("codigo"=>"PND","valor"=>"Sin Activar"),
-   array("codigo"=>"ACT","valor"=>"Activo"),
-   array("codigo"=>"SPD","valor"=>"Suspendido"),
-   array("codigo"=>"INA","valor"=>"Inactivo")
+
+   array("codigo"=>"ACT","valor"=>"Activo")
+
  );
 }
 

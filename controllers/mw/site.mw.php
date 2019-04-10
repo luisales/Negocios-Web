@@ -3,9 +3,9 @@
 require_once "libs/parameters.php";
 function site_init(){
     global $host_server;
-    addToContext("page_title","PHP Simple MVC Demo");
+    addToContext("page_title","VMART");
     addToContext("max_file_size",20); // In Megas
-    addToContext("host_server",$host_server); 
+    addToContext("host_server",$host_server);
     date_default_timezone_set ( "America/Tegucigalpa" );
 }
 site_init();

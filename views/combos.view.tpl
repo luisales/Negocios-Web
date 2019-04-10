@@ -34,11 +34,13 @@
           <input name="codCombo" value="{{codCombo}}" type="hidden"/>
           <button type="submit">Editar</button>
         </form>
+
         <form action="index.php" method="GET">
-          <input name="page" value="combo" type="hidden" />
-          <input name="mode" value="DEL" type="hidden" />
+          <input name="page" value="intermedios" type="hidden" />
+          <input name="mode" value="COM" type="hidden" />
           <input name="codCombo" value="{{codCombo}}" type="hidden" />
-          <button type="submit">Eliminar</button>
+            <input name="codInventario" value="" type="hidden" />
+          <button type="submit">Contenido</button>
         </form>
       </td>
     </tr>

@@ -1,40 +1,45 @@
 <h1>{{modeDsc}}</h1>
 <section class="row">
-  <form action="index.php?page=pais&mode={{mode}}&paiscod={{paiscod}}"
+  <form action="index.php?page=combo&mode={{mode}}&codCombo={{codCombo}}"
       method="POST" class="col-8 col-offset-2">
-      <input type="hidden" name="paiscod" value="{{paiscod}}" />
+      <input type="hidden" name="codCombo" value="{{codCombo}}" />
       <input type="hidden" name="tocken" value="{{tocken}}" />
       <input type="hidden" name="mode" value="{{mode}}" />
       <div class="row">
-        <label class="col-5" for="paiscod">Codigo del pais</label>
-        <input type="text" id="paiscod" name="paiscod" value="{{paiscod}}"
-          placeholder="Codigo del pais" maxlength="3"
+        <label class="col-5" for="desCombo">Nombre Combo</label>
+        <input type="text" id="desCombo" name="desCombo" value="{{desCombo}}"
+          placeholder="Nombre del Combo" maxlength="128"
             class="col-7" {{readonly}}/>
       </div>
       <div class="row">
-        <label class="col-5" for="paisdsc">Nombre del pais</label>
-        <input type="text" id="paisdsc" name="paisdsc" value="{{paisdsc}}"
-          placeholder="Nombre del Pais" maxlength="60"
+        <label class="col-5" for="preCombo">Precio</label>
+        <input type="number" min="0" max="99999999" step="1" id="preCombo"
+          name="preCombo" value="{{preCombo}}"
+          placeholder="Precio del Combo" maxlength="8"
+          class="col-7" {{readonly}}/>
+      </div>
+      <div class="row">
+        <label class="col-5" for="catCombo" >Categoria</label>
+        <select name="catCombo" id="catCombo" class="col-7">
+          {{foreach categoria}}
+            <option value="{{cod}}" {{selected}}>{{dsc}}</option>
+          {{endfor categoria}}
+        </select>
+      </div>
+      <div class="row">
+        <label class="col-5" for="comCombo">Descripción</label>
+        <input type="text" id="comCombo" name="comCombo" value="{{comCombo}}"
+          placeholder="Descripción del Combo" maxlength="128"
             class="col-7" {{readonly}}/>
       </div>
+
+
+
       <div class="row">
-        <label class="col-5" for="paisgeo">Ubicacion del pais</label>
-        <input type="text" id="paisgeo" name="paisgeo" value="{{paisgeo}}"
-          placeholder="Ubicacion del pais" maxlength="45"
-          class="col-7" {{readonly}}/>
-      </div>
-      <div class="row">
-        <label class="col-5" for="paisfecha">Fecha</label>
-        <input type="datetime" id="paisfecha"
-          name="paisfecha" value="{{paisfecha}}"
-          placeholder="Fecha"
-          class="col-7" {{readonly}}/>
-      </div>
-      <div class="row">
-      <label class="col-5" for="paisusuario">Codigo de usuario</label>
-      <input type="number" min="0" max="99999999" id="paisusuario"
-        name="paisusuario" value="{{paisusuario}}"
-        placeholder="Codigo de usuario" class="col-7" {{readonly}} />
+        <label class="col-5" for="urlCombo">Url de Imágen</label>
+        <input type="text" id="urlCombo" name="urlCombo" value="{{urlCombo}}"
+          placeholder="Url de Image" maxlength="255"
+          class="col-7" {{readonly}} />
       </div>
       <div class="row">
         <div class="col-7 col-offset-5 center">
@@ -43,12 +48,13 @@
           <button id="btnCancelar">Cancelar</button>
         </div>
       </div>
+
       <script>
         $(document).ready(function(){
           $("#btnCancelar").click(function(e){
               e.preventDefault();
               e.stopPropagation();
-              location.assign("index.php?page=paises");
+              location.assign("index.php?page=combos");
           });
           $("#btnProcesar").click(function(e){
               e.preventDefault();

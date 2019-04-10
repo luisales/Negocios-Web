@@ -45,76 +45,54 @@ function run()
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
         if (isset($_GET["mode"])) {
             $viewData["mode"] = $_GET["mode"];
-            $viewData["codCombo"] = $_GET["codCombo"];
+            $viewData["codInventario"] = $_GET["codInventario"];
             switch($viewData["mode"])
             {
             case 'INS':
-                $viewData["modeDsc"] = "Nuevo Producto";
+                $viewData["modeDsc"] = "Nuevo Producto al Combo";
                 $viewData["isinsert"] = true;
                 break;
-            case 'UPD':
-                if (isset($_GET["codCombo"])) {
-                    $viewData["codCombo"] =  $_GET["codCombo"];
-                } else {
-                    redirectWithMessage(
-                        "Código de Producto no Válido",
-                        "index.php?page=combos"
-                    );
-                    die();
-                }
-                break;
+
             case 'DEL':
                 $viewData["readonly"] = "readonly";
-                if (isset($_GET["codCombo"])) {
-                    $viewData["codCombo"] =  $_GET["codCombo"];
+                if (isset($_GET["codInventario"])) {
+                    $viewData["codInventario"] =  $_GET["codInventario"];
                 } else {
                     redirectWithMessage(
                         "Código de Producto no Válido",
-                        "index.php?page=combos"
+                        "index.php?page=intermedios"
                     );
                     die();
                 }
                 break;
-            case 'DSP':
-                $viewData["readonly"] = "readonly";
-                if (isset($_GET["codCombo"])) {
-                    $viewData["codCombo"] =  $_GET["codCombo"];
-                } else {
-                    redirectWithMessage(
-                        "Código de Producto no Válido",
-                        "index.php?page=combos"
-                    );
-                    die();
-                }
-                break;
+
             }
-            $viewData["tocken"] = md5(time().'combos');
-            $_SESSION["combos_tocken"] = $viewData["tocken"];
+            $viewData["tocken"] = md5(time().'intermedia');
+            $_SESSION["intermedia_tocken"] = $viewData["tocken"];
         }
     }
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST["tocken"])
-            && $_POST["tocken"] === $_SESSION["combos_tocken"]
+            && $_POST["tocken"] === $_SESSION["intermedia_tocken"]
         ) {
              mergeFullArrayTo($_POST, $viewData);
             $viewData["mode"] = $_POST["mode"];
-            $viewData["codCombo"] = $_POST["codCombo"];
-            $viewData["tocken"] = md5(time().'combos');
-            $_SESSION["combos_tocken"] = $viewData["tocken"];
+            $viewData["codInventario"] = $_POST["codInventario"];
+            $viewData["tocken"] = md5(time().'intermedia');
+            $_SESSION["intermedia_tocken"] = $viewData["tocken"];
 
             switch($viewData["mode"])
             {
             case 'INS':
-                $viewData["modeDsc"] = "Nuevo Producto";
+                $viewData["modeDsc"] = "Nuevo Producto al Menú";
                 $viewData["isinsert"] = true;
 
-                //$viewData["errores"] = Array();
-                //$viewData["haserrores"] = false;
+
                 if (!$viewData["haserrores"]) {
-                    /// llamamos al modelo de datos para insertar el producto
-                    $lastID = agregarNuevoCombo($_POST);
+
+                    $lastID = agregarNuevoItemCombo($_POST);
                     if ($lastID) {
-                        redirectWithMessage("Producto Agregado Satisfactorimente", "index.php?page=combos");
+                        redirectWithMessage("Producto Agregado Satisfactorimente", "index.php?page=intermedios");
                         die();
                     } else {
                         $viewData["errores"][] = "No se pudo agregar el producto";
@@ -122,23 +100,11 @@ function run()
                     }
                 }
                 break;
-            case 'UPD':
-                $result = actualizarCombo($_POST);
-                if ($result) {
-                    redirectWithMessage("Producto Actualizado Satisfactorimente", "index.php?page=combos");
-                    die();
-                } else {
-                     $viewData["errores"][] = "No se pudo Actualizar el producto";
-                     $viewData["haserrores"] = true;
-                }
-                break;
+
             case 'DEL':
-
-
-                $result = eliminarIntCombo($_POST["codCombo"]);
-                $result = eliminarCombo($_POST["codCombo"]);
+                $result = eliminarItemCombo($_POST["codInventario"]);
                 if ($result) {
-                    redirectWithMessage("Producto Eliminado Satisfactorimente", "index.php?page=combos");
+                    redirectWithMessage("Producto Eliminado Satisfactorimente", "index.php?page=inventarios");
                     die();
                 } else {
                      $viewData["errores"][] = "No se pudo Eliminar el producto";
@@ -156,7 +122,7 @@ function run()
 
     //Si viene el codigo del producto buscamos el producto en el modelo de datos
     if ($viewData["codCombo"]!=='') {
-        $dbCombos = obtieneComboPorId($viewData["codCombo"]);
+        $dbCombos = obtieneItemComboPorId($viewData["codCombo"]);
 
         mergeFullArrayTo($dbCombos, $viewData);
 
@@ -168,19 +134,9 @@ function run()
         );
         $viewData["modeDsc"] = $modeDescriptions[$viewData["mode"]] .
             $viewData["desCombo"];
-/*
-        $viewData["prddsc"] = $dbProducto[""];
-        $viewData["prdcodbrr"] = $dbProducto[""];
-        $viewData["prdSKU"] = $dbProducto[""];
-        $viewData["prdStock"] = "";
-        $viewData["prdPrcVVnt"] = "";
-        $viewData["prdPrcCpm"] = "";
-        $viewData["prdImgUri"] = "";
-        $viewData["prdEst"] = "";
-        $viewData["prdBio"] = "";
-        */
+
     }
-    renderizar("combo", $viewData);
+    renderizar("intermedia", $viewData);
 }
 
 run();
