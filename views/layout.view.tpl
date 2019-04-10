@@ -17,6 +17,7 @@
           <div class="menu">
               <div class="brand"><a href="index.php?page=home">{{page_title}}</a></div>
               <ul>
+                <li>  <a href="index.php?page=admin" class="btn btn-primary">Crear Cuenta</a></li>
                   <li><a href="index.php?page=login">Iniciar Sesión</a></li>
               </ul>
               <div class="hbtn"> <div>&nbsp;</div><div>&nbsp;</div><div>&nbsp;</div></div>

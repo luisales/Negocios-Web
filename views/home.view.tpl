@@ -1,8 +1,13 @@
 <div class="heropanel">
-  <h1>
-  VMART
+  <h1 style="text-align: center ;">
+  Pedidos en línea VMART
   </h1>
 
-  <a href="index.php?page=admin" class="btn btn-primary">Crear Cuenta</a>
-  <img src="public/imgs/res2.jpg" alt="">
+
+  <img src="public/imgs/res2.jpg"  style="  position: relative;
+    border-width:15px;
+    border-style:inset;
+    border-color:#fffacd;
+    width: 100%;
+     height: auto;"  alt="">
 </div>

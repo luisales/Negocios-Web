@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2019 a las 00:21:58
+-- Tiempo de generación: 11-04-2019 a las 01:21:13
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -68,8 +68,8 @@ CREATE TABLE `combos` (
 
 INSERT INTO `combos` (`codCombo`, `desCombo`, `preCombo`, `catCombo`, `urlCombo`, `comCombo`) VALUES
 (2, 'Pollo Entero', '2020', 'IND', 'http://www.happyfoodstube.com/wp-content/uploads/2016/02/Calzone-Pizza-Slices-e1459845640761.jpg', 'Un pollo entero para disfrutar con tu familia'),
-(3, 'Calzon', '2500', 'IND', '2', ''),
-(4, 'pizza2', '2', 'IND', '', ''),
+(3, 'Pollo y Arroz', '120', 'CMB', 'https://i.ytimg.com/vi/yprneRFOIKM/maxresdefault.jpg', 'Medio pollo y una orden de arroz'),
+(4, '1/4 de pollo', '60', 'IND', 'https://pollosyparrilladascaporal.com/wp-content/uploads/2017/11/cuartopollo-compressor.png', 'Un cuarto de pollo'),
 (5, 'Combo de papas y pollo', '2500', 'CMB', 'http://www.polloscarioca.com/images/seleccion-interno/combo3.jpg', 'Medio pollo y una orden de papas '),
 (6, 'Medio Pollo', '70', 'IND', 'https://media-cdn.tripadvisor.com/media/photo-s/0a/7b/86/6e/medio-pollo.jpg', 'Rica orden de medio pollo');
 
