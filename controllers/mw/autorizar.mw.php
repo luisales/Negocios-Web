@@ -24,7 +24,7 @@ function isAuthorized($assetCode, $usercod)
         return true;
     }
     if ($_SESSION["userType"] == 'USR') {
-        return true;
+        return false;
     }
     return estaAutorizado($usercod, $assetCode);
 }
@@ -36,7 +36,7 @@ function hasAccess($functionCode, $usercod)
         insertPrograma($assetCode, $assetCode, 'ACT', 'FNC');
     }
     if ($_SESSION["userType"] == 'USR') {
-        return true;
+        return false;
     }
     return estaAutorizado($usercod, $assetCode);
 }

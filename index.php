@@ -73,9 +73,9 @@ case "users":
       mw_redirectToLogin($_SERVER["QUERY_STRING"]);
     die();
 case "user":
-    ($logged)?
-      include_once "controllers/security/user.control.php":
-      mw_redirectToLogin($_SERVER["QUERY_STRING"]);
+
+      include_once "controllers/security/user.control.php";
+
     die();
 case "roles":
     ($logged)?
