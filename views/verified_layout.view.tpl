@@ -18,6 +18,8 @@
             <div class="menu">
                 <div class="brand">{{page_title}}</div>
                 <ul>
+                  <li  ><a href="MenuPrincipal.html">Pagina Principal</a></li>
+
                     <li><a href="Cart.php">Vista de Menú</a>
                     {{if notifnum}}
                     <li><a href="index.php?page=notificacion">

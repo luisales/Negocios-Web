@@ -3,8 +3,8 @@
 
 <h1>Gestion de inventario</h1>
 <h2>{{nombre}}</h2>
-<section >
-<table   class="col-10 col-offset-1">
+<section  class="row">
+<table class="blueTable"  class="col-10 col-offset-1">
   <thead>
     <tr>
       <th>Código</th>

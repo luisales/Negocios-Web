@@ -11,6 +11,8 @@ function generarMenu($usercod)
     addToContext('appmenu', $menu);
     if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"users","mdldsc"=>"Usuarios");
     addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"combos","mdldsc"=>"Combos");
+    addToContext('appmenu', $menu);
     if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"roles","mdldsc"=>"Roles");
     addToContext('appmenu', $menu);
     if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"programas","mdldsc"=>"Funciones");

@@ -85,7 +85,7 @@ session_start();
                   $Dia=date('Y-m-d');
                   $Hora=date( 'h:i', strtotime('-8 hours'));
 
-                  $SQL = "INSERT INTO Factura  ( fecFactura, estFactura, horFactura)
+                  $SQL = "INSERT INTO factura  ( fecFactura, estFactura, horFactura)
                   VALUES ( '$Dia', 'ACT', '$Hora');";
 
                   if ($con->query($SQL) === TRUE) {
@@ -118,6 +118,7 @@ session_start();
                       }
                         $cod =$value["codCarrito"];
                         $cat = $value["canCarrito"];
+
                         $SQL = "INSERT INTO detalleFactura  ( codFactura, codCombo, cantidad)
                         VALUES ( $last_id ,  $cod,   $cat);";
                         mysqli_query($con, $SQL);
@@ -172,6 +173,9 @@ session_start();
   <div class="menu">
       <div class="brand" style>Vmart</div>
         <ul>
+  <li>  <a href="index.php?page=dashboard">Volver</a></li>
+
+             <li  ><a href="MenuPrincipal.html">Pagina Principal</a></li>
 
         <li>  <a href="index.php?page=logout">Cerrar Sesión</a></li>
         </div>
@@ -206,7 +210,7 @@ session_start();
 
                                 <h5 class="text-danger">L. <?php echo  $row["preCombo"]; ?></h5>
                                   <h5 class="text-descrip"><?php echo $row["comCombo"]; ?></h5>
-                                <input type="text" name="cantidad" class="form-control" value="1">
+                                <input type="number" name="cantidad" min="1" class="form-control" value="1">
                                 <input type="hidden"name="nombreoculto" value="<?php echo $row["desCombo"]; ?>">
                                 <input type="hidden" name="preciooculto" value="<?php echo $row["preCombo"]; ?>">
                                 <input type="hidden" name="hidden_desc" value="<?php echo $row["comCombo"]; ?>">
@@ -215,6 +219,9 @@ session_start();
 
                         </form>
 </div>
+<br>
+<br>
+<br>
                       <?php
 
                 }
@@ -244,7 +251,7 @@ session_start();
 
                                 <h5 class="text-danger">L. <?php echo  $row["preCombo"]; ?></h5>
                                   <h5 class="text-descrip"><?php echo $row["comCombo"]; ?></h5>
-                                <input type="text" name="cantidad" class="form-control" value="1">
+                                <input type="number" name="cantidad" class="form-control" min="1"value="1">
                                 <input type="hidden" name="nombreoculto" value="<?php echo $row["desCombo"]; ?>">
                                 <input type="hidden" name="preciooculto" value="<?php echo $row["preCombo"]; ?>">
                                 <input type="hidden" name="hidden_desc" value="<?php echo $row["comCombo"]; ?>">
@@ -252,11 +259,11 @@ session_start();
                                        value="Añadir al carrin">
 
                         </form>
-                        <br>
-                        <br>
-                    <br>
-                    </div>
 
+                    </div>
+                    <br>
+                    <br>
+                <br>
                     <?php
                 }
             }
@@ -313,7 +320,7 @@ session_start();
                   <?php $fecha = date('H', strtotime('-8 hours'));
 
 
-            ($fecha <=8 || $fecha >=20) ? $resu="disabled" : $resu="enabled";
+            ($fecha <=8 || $fecha >=21) ? $resu="disabled" : $resu="enabled";
 
  ?>
    <div class="col-s-8 col-m-8 col-l-8 pagar ">
