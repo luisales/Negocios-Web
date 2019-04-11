@@ -252,6 +252,9 @@ session_start();
                                        value="Añadir al carrin">
 
                         </form>
+                        <br>
+                        <br>
+                        br
                     </div>
 
                     <?php
@@ -313,11 +316,22 @@ session_start();
             ($fecha <=8 || $fecha >=20) ? $resu="disabled" : $resu="enabled";
 
  ?>
-   <div class="col-s-8 col-m-8 col-l-8 ">
+   <div class="col-s-8 col-m-8 col-l-8 pagar ">
             <?php
 
           if ( $resu=="enabled")
-          echo '<a href="Cart.php?pay=pagar" class="disabled"><span
+          echo '<a style="  border-radius:3px;
+            border:1px solid #942911;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:13px;
+            font-weight:bold;
+            padding:8px 24px;
+            text-decoration:none;
+              background-color:#d0451b;
+            text-shadow:0px 1px 0px #854629;" href="Cart.php?pay=pagar" class="disabled"><span
                       class="disabled">Pagar</span></a>';
                       ?>
 

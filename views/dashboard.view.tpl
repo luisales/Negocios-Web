@@ -1,19 +1,13 @@
-<section>
-  <h1>Menú de Control </h1>
-</section>
-<section>
-  <h2>Opciones</h2>
-  <div>
-    <ul>
-      <li><a href="index.php?page=users">Usuarios</a></li>
-      <li><a href="index.php?page=roles">Roles</a></li>
-      <li><a href="index.php?page=programas">Funciones</a></li>
 
-      <li><a href="index.php?page=combos">Combo</a></li>
-        <li><a href="index.php?page=inventarios">Inventario</a></li>
-  <li><a href="index.php?page=facturas">Facturas</a></li>
-        <li><a href="Cart.php">CarroComprasCombo</a></li>
 
-    </ul>
-  </div>
-</section>
+    <h1 style="text-align: center ;">
+    Pedidos en línea VMART
+    </h1>
+
+
+    <img src="public/imgs/res2.jpg"  style="  position: relative;
+      border-width:15px;
+      border-style:inset;
+      border-color:#fffacd;
+      width: 100%;
+       height: auto;"  alt="">

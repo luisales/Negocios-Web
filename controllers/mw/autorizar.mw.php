@@ -9,8 +9,16 @@ function generarMenu($usercod)
     addToContext('appmenu', $menu);
     if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"inventarios","mdldsc"=>"Inventario");
     addToContext('appmenu', $menu);
-    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"combos","mdldsc"=>"Carta de Menu");
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"users","mdldsc"=>"Usuarios");
     addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"roles","mdldsc"=>"Roles");
+    addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"programas","mdldsc"=>"Funciones");
+    addToContext('appmenu', $menu);
+    if(isAuthorized('dashboard',$usercod))$menu[] = array("mdlprg"=>"facturas","mdldsc"=>"Facturas");
+    addToContext('appmenu', $menu);
+
+
 
 }
 
