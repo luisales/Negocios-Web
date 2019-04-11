@@ -1,4 +1,4 @@
-<div class="heropanel">
+
   <h1 style="text-align: center ;">
   Pedidos en línea VMART
   </h1>
@@ -10,4 +10,3 @@
     border-color:#fffacd;
     width: 100%;
      height: auto;"  alt="">
-</div>
