@@ -254,7 +254,7 @@ session_start();
                         </form>
                         <br>
                         <br>
-                        br
+                    <br>
                     </div>
 
                     <?php
